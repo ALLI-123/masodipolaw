@@ -1,0 +1,79 @@
+<div class="form-container">
+          <!-- 
+            TALLY FORM INTEGRATION - CONTACT FORM
+            ========================================
+            Replace the src URL below with your actual Tally form embed URL.
+            
+            Steps to get your Tally embed URL:
+            1. Create a new form at https://tally.so
+            2. Add fields: Full Name, Email, Phone, Subject, Message
+            3. Click "Publish" → "Embed" → Copy the iframe src URL
+            4. Replace the src below with your Tally form URL
+            
+            Example: src="https://tally.so/embed/YOUR_FORM_ID?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+          -->
+          <iframe 
+            data-tally-src="https://tally.so/embed/Y59PZ6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+            loading="lazy" 
+            width="100%" 
+            height="600" 
+            frameborder="0" 
+            marginheight="0" 
+            marginwidth="0" 
+            title="Contact Form - Sodipo Chambers">
+          </iframe>
+          <script>
+            // Tally auto-resize script
+            var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(document.querySelector('script[src="'+w+'"]')==null){var s=document.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+          </script>
+          
+          <!-- 
+            FALLBACK: If you prefer a simple HTML form instead of Tally, 
+            you can use a service like Formspree, Netlify Forms, or Getform.
+            Example with Formspree:
+            
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name *</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address *</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" name="phone">
+              </div>
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject *</label>
+                <input type="text" class="form-control" id="subject" name="subject" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message *</label>
+                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-gold">Send Message <i class="fa-solid fa-paper-plane ms-2"></i></button>
+            </form>
+          -->
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,907 @@
+/* ========================================
+   RESPONSIVE STYLES
+   Barrister M. A. Sodipo Chambers
+   ======================================== */
+
+/* LARGE DESKTOPS (1400px+) */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1320px;
+  }
+  
+  .hero-title {
+    font-size: 4rem;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+  }
+  
+  .metric-number {
+    font-size: 4rem;
+  }
+}
+
+/* DESKTOPS (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .section-title {
+    font-size: 2.8rem;
+  }
+}
+
+/* TABLETS LANDSCAPE (992px - 1199px) */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .section {
+    padding: 80px 0;
+  }
+  
+  .hero-title {
+    font-size: 3rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .section-title {
+    font-size: 2.3rem;
+  }
+  
+  .section-head {
+    margin-bottom: 50px;
+  }
+  
+  .feature-card,
+  .practice-card,
+  .value-card,
+  .commitment-card,
+  .case-card,
+  .case-category,
+  .engagement-card,
+  .strength-card,
+  .contact-info-card {
+    padding: 30px 25px;
+  }
+  
+  .testimonial-card {
+    padding: 40px 30px;
+  }
+  
+  .testimonial-text {
+    font-size: 1.05rem;
+  }
+  
+  .mv-card,
+  .philosophy-quote {
+    padding: 40px 30px;
+  }
+  
+  .metric-number {
+    font-size: 3rem;
+  }
+  
+  .metric-label {
+    font-size: 0.9rem;
+  }
+}
+
+/* TABLETS PORTRAIT (768px - 991px) */
+@media (max-width: 991px) {
+  .section {
+    padding: 70px 0;
+  }
+  
+  .hero-carousel,
+  .carousel-item {
+    height: 80vh;
+    min-height: 500px;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-eyebrow {
+    font-size: 0.8rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+  }
+  
+  .section-lead {
+    font-size: 1rem;
+  }
+  
+  .section-head {
+    margin-bottom: 40px;
+  }
+  
+  .navbar-nav {
+    padding: 20px 0;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 10px 0;
+  }
+  
+  .navbar-nav .btn {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .page-header {
+    height: 40vh;
+    min-height: 350px;
+  }
+  
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .page-header p {
+    font-size: 1rem;
+  }
+  
+  .attorney-portrait {
+    margin-bottom: 40px;
+  }
+  
+  .portrait-frame {
+    max-width: 300px;
+  }
+  
+  .feature-card,
+  .practice-card,
+  .value-card,
+  .commitment-card,
+  .case-card,
+  .case-category,
+  .engagement-card,
+  .strength-card,
+  .contact-info-card {
+    padding: 30px 25px;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-card {
+    padding: 35px 25px;
+  }
+  
+  .testimonial-text {
+    font-size: 1rem;
+  }
+  
+  .mv-card,
+  .philosophy-quote {
+    padding: 35px 25px;
+    margin-bottom: 20px;
+  }
+  
+  .metric {
+    padding: 20px 15px;
+  }
+  
+  .metric-number {
+    font-size: 2.5rem;
+  }
+  
+  .metric-label {
+    font-size: 0.85rem;
+  }
+  
+  .service-icon-large {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+  }
+  
+  .service-icon-large i {
+    font-size: 2rem;
+  }
+  
+  .form-container {
+    padding: 30px 25px;
+  }
+  
+  .site-footer {
+    padding: 60px 0 30px;
+  }
+  
+  .footer-brand {
+    margin-bottom: 15px;
+  }
+  
+  .social-links {
+    margin-top: 20px;
+  }
+  
+  .footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+  }
+}
+
+/* MOBILE PHONES (576px - 767px) */
+@media (max-width: 767px) {
+  .section {
+    padding: 60px 0;
+  }
+  
+  .hero-carousel,
+  .carousel-item {
+    height: 70vh;
+    min-height: 450px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+  }
+  
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    margin-bottom: 15px;
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+    margin: 0;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+  
+  .section-lead {
+    font-size: 0.95rem;
+  }
+  
+  .section-head {
+    margin-bottom: 35px;
+  }
+  
+  .eyebrow {
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+  }
+  
+  .page-header {
+    height: 35vh;
+    min-height: 300px;
+    padding-top: 70px;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .page-header p {
+    font-size: 0.95rem;
+  }
+  
+  .navbar-brand {
+    gap: 8px;
+  }
+  
+  .brand-mark {
+    font-size: 1.2rem;
+  }
+  
+  .brand-text {
+    font-size: 1.1rem;
+  }
+  
+  .portrait-frame {
+    max-width: 250px;
+    aspect-ratio: 3/4;
+  }
+  
+  .portrait-placeholder i {
+    font-size: 3.5rem;
+  }
+  
+  .portrait-placeholder span {
+    font-size: 1rem;
+  }
+  
+  .portrait-badge {
+    padding: 8px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .feature-card,
+  .practice-card,
+  .value-card,
+  .commitment-card,
+  .case-card,
+  .case-category,
+  .engagement-card,
+  .strength-card,
+  .contact-info-card {
+    padding: 25px 20px;
+    margin-bottom: 15px;
+  }
+  
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-icon i {
+    font-size: 1.5rem;
+  }
+  
+  .feature-card h4,
+  .practice-card h5,
+  .value-card h5,
+  .commitment-card h5,
+  .case-card h5,
+  .strength-card h5,
+  .contact-info-card h5 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .feature-card p,
+  .practice-card p,
+  .value-card p,
+  .commitment-card p,
+  .case-card p,
+  .strength-card p,
+  .contact-info-card p {
+    font-size: 0.9rem;
+  }
+  
+  .practice-card i,
+  .case-card i,
+  .strength-card i,
+  .contact-info-card i {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+  
+  .testimonial-card {
+    padding: 30px 20px;
+  }
+  
+  .quote-mark {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .testimonial-text {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-author {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .author-initial {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+  
+  .mv-card,
+  .philosophy-quote {
+    padding: 30px 20px;
+    margin-bottom: 15px;
+  }
+  
+  .mv-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  
+  .mv-icon i {
+    font-size: 1.5rem;
+  }
+  
+  .mv-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .mv-card p {
+    font-size: 0.9rem;
+  }
+  
+  .philosophy-quote .quote-mark {
+    font-size: 3rem;
+  }
+  
+  .philosophy-quote p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+  }
+  
+  .quote-author {
+    font-size: 0.9rem;
+  }
+  
+  .metric {
+    padding: 15px 10px;
+    margin-bottom: 15px;
+  }
+  
+  .metric-number {
+    font-size: 2.2rem;
+  }
+  
+  .metric-label {
+    font-size: 0.8rem;
+  }
+  
+  .service-icon-large {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+  }
+  
+  .service-icon-large i {
+    font-size: 1.8rem;
+  }
+  
+  .service-details h5 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  
+  .service-list li {
+    padding: 8px 0;
+    font-size: 0.9rem;
+  }
+  
+  .case-cat-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .case-cat-header i {
+    font-size: 1.8rem;
+  }
+  
+  .case-cat-header h4 {
+    font-size: 1.2rem;
+  }
+  
+  .case-category p {
+    font-size: 0.9rem;
+  }
+  
+  .engagement-tag {
+    font-size: 0.7rem;
+    padding: 4px 12px;
+    margin-bottom: 15px;
+  }
+  
+  .engagement-card h5 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .engagement-card p {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .engagement-outcome {
+    padding-top: 15px;
+    font-size: 0.85rem;
+  }
+  
+  .form-container {
+    padding: 25px 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-lg {
+    padding: 12px 25px;
+    font-size: 0.95rem;
+  }
+  
+  .btn-sm {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .whatsapp-widget {
+    width: 50px;
+    height: 50px;
+    font-size: 1.6rem;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 10%;
+  }
+  
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    padding: 15px;
+  }
+  
+  .carousel-indicators {
+    bottom: 20px;
+  }
+  
+  .carousel-indicators button {
+    width: 30px;
+  }
+  
+  .site-footer {
+    padding: 50px 0 25px;
+  }
+  
+  .site-footer h6 {
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  
+  .footer-links a,
+  .footer-contact li {
+    font-size: 0.85rem;
+  }
+  
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-contact li {
+    margin-bottom: 10px;
+  }
+  
+  .social-links {
+    margin-top: 15px;
+    gap: 10px;
+  }
+  
+  .social-links a {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+  
+  .footer-bottom {
+    margin-top: 30px;
+    padding-top: 15px;
+  }
+  
+  .footer-bottom p {
+    font-size: 0.8rem;
+  }
+}
+
+/* SMALL MOBILE PHONES (max-width: 575px) */
+@media (max-width: 575px) {
+  .section {
+    padding: 50px 0;
+  }
+  
+  .hero-carousel,
+  .carousel-item {
+    height: 65vh;
+    min-height: 400px;
+  }
+  
+  .hero-title {
+    font-size: 1.7rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .section-lead {
+    font-size: 0.9rem;
+  }
+  
+  .page-header {
+    height: 30vh;
+    min-height: 250px;
+  }
+  
+  .page-header h1 {
+    font-size: 1.7rem;
+  }
+  
+  .page-header p {
+    font-size: 0.9rem;
+  }
+  
+  .portrait-frame {
+    max-width: 220px;
+  }
+  
+  .portrait-placeholder i {
+    font-size: 3rem;
+  }
+  
+  .portrait-placeholder span {
+    font-size: 0.9rem;
+  }
+  
+  .portrait-badge {
+    padding: 6px 15px;
+    font-size: 0.85rem;
+  }
+  
+  .feature-card,
+  .practice-card,
+  .value-card,
+  .commitment-card,
+  .case-card,
+  .case-category,
+  .engagement-card,
+  .strength-card,
+  .contact-info-card,
+  .testimonial-card,
+  .mv-card,
+  .philosophy-quote,
+  .form-container {
+    padding: 20px 15px;
+  }
+  
+  .feature-card h4,
+  .practice-card h5,
+  .value-card h5,
+  .commitment-card h5,
+  .case-card h5,
+  .strength-card h5,
+  .contact-info-card h5,
+  .mv-card h3,
+  .engagement-card h5 {
+    font-size: 1.1rem;
+  }
+  
+  .feature-card p,
+  .practice-card p,
+  .value-card p,
+  .commitment-card p,
+  .case-card p,
+  .strength-card p,
+  .contact-info-card p,
+  .mv-card p,
+  .case-category p,
+  .engagement-card p {
+    font-size: 0.85rem;
+  }
+  
+  .metric-number {
+    font-size: 2rem;
+  }
+  
+  .metric-label {
+    font-size: 0.75rem;
+  }
+  
+  .testimonial-text {
+    font-size: 0.9rem;
+  }
+  
+  .philosophy-quote p {
+    font-size: 1.1rem;
+  }
+  
+  .quote-author {
+    font-size: 0.85rem;
+  }
+  
+  .btn {
+    padding: 9px 18px;
+    font-size: 0.85rem;
+  }
+  
+  .whatsapp-widget {
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+/* VERY SMALL SCREENS (max-width: 400px) */
+@media (max-width: 400px) {
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+  }
+  
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .brand-mark {
+    font-size: 1rem;
+  }
+  
+  .brand-text {
+    font-size: 0.95rem;
+  }
+  
+  .portrait-frame {
+    max-width: 200px;
+  }
+  
+  .metric-number {
+    font-size: 1.8rem;
+  }
+  
+  .metric-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* PRINT STYLES */
+@media print {
+  .site-navbar,
+  .whatsapp-widget,
+  .carousel-control-prev,
+  .carousel-control-next,
+  .carousel-indicators,
+  .site-footer,
+  .hero-cta,
+  .btn {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  .section {
+    page-break-inside: avoid;
+    padding: 20px 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+  }
+  
+  img {
+    max-width: 100% !important;
+  }
+}
+
+/* HIGH DPI DISPLAYS */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-carousel,
+  .carousel-item,
+  .page-header {
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* LANDSCAPE ORIENTATION (MOBILE) */
+@media (max-height: 500px) and (orientation: landscape) {
+  .hero-carousel,
+  .carousel-item {
+    min-height: 400px;
+  }
+  
+  .page-header {
+    min-height: 250px;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .section {
+    padding: 40px 0;
+  }
+}
+
+/* ACCESSIBILITY - REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .whatsapp-pulse {
+    animation: none;
+  }
+  
+  .preloader-scales {
+    animation: none;
+  }
+  
+  .preloader-bar span {
+    animation: none;
+  }
+}
+
+/* DARK MODE SUPPORT (OPTIONAL) */
+@media (prefers-color-scheme: dark) {
+  /* Uncomment to enable dark mode
+  :root {
+    --white: #1A1A1A;
+    --light-gray: #2C2C2C;
+    --text-dark: #E8ECEF;
+    --text-light: #B0B8C1;
+    --border-light: #3A3A3A;
+  }
+  
+  body {
+    background-color: #1A1A1A;
+    color: #E8ECEF;
+  }
+  
+  .section-light {
+    background-color: #1A1A1A;
+  }
+  
+  .section-dark {
+    background-color: #2C2C2C;
+  }
+  
+  .feature-card,
+  .value-card,
+  .commitment-card,
+  .case-category,
+  .strength-card,
+  .contact-info-card,
+  .testimonial-card {
+    background-color: #2C2C2C;
+    border-color: #3A3A3A;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: #E8ECEF;
+  }
+  */
+}
