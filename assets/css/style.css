@@ -373,7 +373,7 @@ img {
 .hero-eyebrow {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 2rem;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
