@@ -14,12 +14,18 @@
   // Initialize Supabase Client
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // Helper: Show status message
+ 
+    // Helper: Show status message (Auto-hides after 6 seconds)
   function showStatus(elementId, message, isSuccess) {
     const el = document.getElementById(elementId);
     el.textContent = message;
     el.className = `mt-3 text-center ${isSuccess ? 'text-success fw-bold' : 'text-danger fw-bold'}`;
     el.style.display = 'block';
+
+    // Automatically hide the message after 6 seconds
+    setTimeout(() => {
+      el.style.display = 'none';
+    }, 6000); 
   }
 
   // Helper: Toggle loading state on button
