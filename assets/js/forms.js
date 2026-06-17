@@ -9,7 +9,7 @@
   const SUPABASE_URL = 'https://urmwdijpgarcxnzjcbmi.supabase.co';
   
   // 🔴 THIS IS WRONG - Get the correct key from Supabase Dashboard → Settings → API
-  const SUPABASE_ANON_KEY = 'sb_publishable_84vC_Y3VrpSOGNS_fqYytA_HM1Bevav';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVybXdkaWpwZ2FyY3huempjYm1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODY2MDcsImV4cCI6MjA5NjE2MjYwN30.pmva1SNmOl4Z7JPNRzRXXrDIdxHJD7Ag6XnrfNM8H0k';
 
   // Initialize Supabase Client
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
