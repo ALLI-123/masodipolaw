@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Supabase Connection Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <h1>Supabase Test Page</h1>
+    <p>Open your browser Console (F12) to see what happens.</p>
+    <button id="testBtn" style="padding: 10px 20px; font-size: 16px;">Click to Test Supabase</button>
+
+    <script>
+        // ️ PASTE YOUR REAL CREDENTIALS HERE
+        const SUPABASE_URL = 'https://urmwdijpgarcxnzjcbmi.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVybXdkaWpwZ2FyY3huempjYm1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODY2MDcsImV4cCI6MjA5NjE2MjYwN30.pmva1SNmOl4Z7JPNRzRXXrDIdxHJD7Ag6XnrfNM8H0k'; // MUST START WITH eyJ...
+
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        document.getElementById('testBtn').addEventListener('click', async () => {
+            console.log('Button clicked. Attempting to insert...');
+            
+            const testData = {
+                full_name: 'Test User',
+                email: 'test@test.com',
+                phone: '123456',
+                subject: 'Test',
+                message: 'This is a test.'
+            };
+
+            const { data, error } = await supabase
+                .from('contact_submissions')
+                .insert([testData])
+                .select();
+
+            if (error) {
+                console.error('❌ SUPABASE ERROR:', error);
+                alert('FAILED! Check Console. Error: ' + error.message);
+            } else {
+                console.log('✅ SUCCESS! Data inserted:', data);
+                alert('SUCCESS! Check your Supabase Table Editor and refresh it!');
+            }
+        });
+    </script>
+</body>
+</html>
