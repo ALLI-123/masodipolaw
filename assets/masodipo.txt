@@ -61,6 +61,94 @@
 
 
 
+GIT hub quick set up on bash terminal
+
+Quick setup — if you’ve done this kind of thing before
+or	
+git@github.com:ALLI-123/masodipolaw.git
+Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore.
+
+…or create a new repository on the command line
+echo "# masodipolaw" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin git@github.com:ALLI-123/masodipolaw.git
+git push -u origin main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Barrister M.A. Sodipo 
+
+website
+
+supabase details:
+
+
+Project name:  masodipo-chambers
+
+
+Project ID:  urmwdijpgarcxnzjcbmi
+
+
+Project region
+Central EU (Frankfurt) :    eu-central-1 
+
+Reference used in APIs and URLs.
+
+
+public anon key:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVybXdkaWpwZ2FyY3huempjYm1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODY2MDcsImV4cCI6MjA5NjE2MjYwN30.pmva1SNmOl4Z7JPNRzRXXrDIdxHJD7Ag6XnrfNM8H0k
+
+
+service_role secret;
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVybXdkaWpwZ2FyY3huempjYm1pIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MDU4NjYwNywiZXhwIjoyMDk2MTYyNjA3fQ.t1cLr0Aak3YaubgZJ5H5SgEEV0i9YzcI3wKwXBBE5u4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+…or push an existing repository from the command line
+git remote add origin git@github.com:ALLI-123/masodipolaw.git
+git branch -M main
+git push -u origin main
 
 
 

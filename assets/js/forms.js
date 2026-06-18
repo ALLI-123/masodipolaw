@@ -1,54 +1,61 @@
 /**
- * FORMS HANDLING WITH SUPABASE
- * Barrister M. A. Sodipo Chambers
+ * FORMS HANDLING WITH SUPABASE - BULLETPROOF VERSION
  */
-(function() {
+
+// Wait for the entire page (including Supabase script) to fully load
+window.addEventListener('load', function() {
   'use strict';
 
-  // ⚠️ REPLACE THESE WITH YOUR ACTUAL SUPABASE CREDENTIALS
+  // ⚠️ YOUR SUPABASE CREDENTIALS
   const SUPABASE_URL = 'https://urmwdijpgarcxnzjcbmi.supabase.co';
-  
-  // 🔴 THIS IS WRONG - Get the correct key from Supabase Dashboard → Settings → API
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVybXdkaWpwZ2FyY3huempjYm1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODY2MDcsImV4cCI6MjA5NjE2MjYwN30.pmva1SNmOl4Z7JPNRzRXXrDIdxHJD7Ag6XnrfNM8H0k';
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVybXdkaWpwZ2FyY3huempjYm1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODY2MDcsImV4cCI6MjA5NjE2MjYwN30.pmva1SNmOl4Z7JPNRzRXXrDIdxHJD7Ag6XnrfNM8H0k'; // ⚠️ REMEMBER TO UPDATE THIS WITH THE LONG EYJ KEY!
 
-  // Initialize Supabase Client
+  // Check if Supabase loaded correctly
+  if (typeof window.supabase === 'undefined') {
+    console.error('Supabase JS failed to load!');
+    return;
+  }
+
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
- 
-    // Helper: Show status message (Auto-hides after 6 seconds)
+  // Helper: Show status message
   function showStatus(elementId, message, isSuccess) {
     const el = document.getElementById(elementId);
+    if (!el) return;
     el.textContent = message;
     el.className = `mt-3 text-center ${isSuccess ? 'text-success fw-bold' : 'text-danger fw-bold'}`;
     el.style.display = 'block';
 
-    // Automatically hide the message after 6 seconds
+    // Auto-hide after 6 seconds
     setTimeout(() => {
       el.style.display = 'none';
-    }, 6000); 
+    }, 6000);
   }
 
-  // Helper: Toggle loading state on button
+  // Helper: Toggle loading state
   function setLoading(buttonId, isLoading) {
     const btn = document.getElementById(buttonId);
+    if (!btn) return;
     const textSpan = btn.querySelector('.btn-text');
     const spinner = btn.querySelector('.spinner-border');
     
     btn.disabled = isLoading;
     if (isLoading) {
-      textSpan.classList.add('d-none');
-      spinner.classList.remove('d-none');
+      if (textSpan) textSpan.classList.add('d-none');
+      if (spinner) spinner.classList.remove('d-none');
     } else {
-      textSpan.classList.remove('d-none');
-      spinner.classList.add('d-none');
+      if (textSpan) textSpan.classList.remove('d-none');
+      if (spinner) spinner.classList.add('d-none');
     }
   }
 
-  // 1. Handle Contact Form Submission
+  // ==========================================
+  // 1. CONTACT FORM
+  // ==========================================
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // STOPS THE PAGE FROM REFRESHING
       
       if (!contactForm.checkValidity()) {
         e.stopPropagation();
@@ -57,7 +64,8 @@
       }
 
       setLoading('contactSubmitBtn', true);
-      document.getElementById('contactFormStatus').style.display = 'none';
+      const statusEl = document.getElementById('contactFormStatus');
+      if (statusEl) statusEl.style.display = 'none';
 
       const formData = new FormData(contactForm);
       const submissionData = {
@@ -68,55 +76,38 @@
         message: formData.get('message')
       };
 
-      console.log('Submitting to Supabase:', submissionData);
-
-      try {
-        // Added .select() to get the inserted row back
-        const { data, error } = await supabase
-          .from('contact_submissions')
-          .insert([submissionData])
-          .select();
-
-        if (error) {
-          console.error('Supabase error:', error);
-          throw error;
-        }
-
-        console.log('Supabase response:', data);
-
-        // Show success with the actual ID to prove it saved
-        if (data && data.length > 0) {
-          showStatus('contactFormStatus', `✅ Success! Data saved. ID: ${data[0].id}. Check Supabase Table Editor and refresh.`, true);
-        } else {
-          showStatus('contactFormStatus', '⚠️ No error, but no data returned. Check Supabase.', true);
-        }
-        
-        contactForm.reset();
-        contactForm.classList.remove('was-validated');
-        
-      } catch (err) {
-        console.error('Contact form error:', err);
-        // Show the EXACT error message on the screen
-        const errorMsg = err.message || 'Unknown error';
-        showStatus('contactFormStatus', `❌ Error: ${errorMsg}`, false);
-      } finally {
-        setLoading('contactSubmitBtn', false);
-      }
+      supabase.from('contact_submissions').insert([submissionData]).select()
+        .then(({ data, error }) => {
+          if (error) throw error;
+          if (data && data.length > 0) {
+            showStatus('contactFormStatus', '✅ Success! Message sent.', true);
+            contactForm.reset();
+            contactForm.classList.remove('was-validated');
+          } else {
+            showStatus('contactFormStatus', '⚠️ Sent, but no confirmation.', true);
+          }
+        })
+        .catch((err) => {
+          console.error('Contact Error:', err);
+          showStatus('contactFormStatus', '❌ Error: ' + err.message, false);
+        })
+        .finally(() => {
+          setLoading('contactSubmitBtn', false);
+        });
     });
   }
 
-  // 2. Handle Consultation Form Submission
+  // ==========================================
+  // 2. CONSULTATION FORM
+  // ==========================================
   const consForm = document.getElementById('consultationForm');
   if (consForm) {
-    // Prevent selecting past dates
     const dateInput = document.getElementById('consDate');
-    if (dateInput) {
-      dateInput.min = new Date().toISOString().split('T')[0];
-    }
+    if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
 
-    consForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      
+    consForm.addEventListener('submit', function(e) {
+      e.preventDefault(); // STOPS THE PAGE FROM REFRESHING
+
       if (!consForm.checkValidity()) {
         e.stopPropagation();
         consForm.classList.add('was-validated');
@@ -124,7 +115,8 @@
       }
 
       setLoading('consSubmitBtn', true);
-      document.getElementById('consFormStatus').style.display = 'none';
+      const statusEl = document.getElementById('consFormStatus');
+      if (statusEl) statusEl.style.display = 'none';
 
       const formData = new FormData(consForm);
       const submissionData = {
@@ -138,37 +130,24 @@
         description: formData.get('description')
       };
 
-      console.log('Submitting consultation to Supabase:', submissionData);
-
-      try {
-        const { data, error } = await supabase
-          .from('consultation_requests')
-          .insert([submissionData])
-          .select();
-
-        if (error) {
-          console.error('Supabase error:', error);
-          throw error;
-        }
-
-        console.log('Supabase response:', data);
-
-        if (data && data.length > 0) {
-          showStatus('consFormStatus', `✅ Success! Consultation saved. ID: ${data[0].id}`, true);
-        } else {
-          showStatus('consFormStatus', '⚠️ No error, but no data returned.', true);
-        }
-        
-        consForm.reset();
-        consForm.classList.remove('was-validated');
-        
-      } catch (err) {
-        console.error('Consultation form error:', err);
-        const errorMsg = err.message || 'Unknown error';
-        showStatus('consFormStatus', `❌ Error: ${errorMsg}`, false);
-      } finally {
-        setLoading('consSubmitBtn', false);
-      }
+      supabase.from('consultation_requests').insert([submissionData]).select()
+        .then(({ data, error }) => {
+          if (error) throw error;
+          if (data && data.length > 0) {
+            showStatus('consFormStatus', '✅ Success! Consultation requested.', true);
+            consForm.reset();
+            consForm.classList.remove('was-validated');
+          } else {
+            showStatus('consFormStatus', '⚠️ Sent, but no confirmation.', true);
+          }
+        })
+        .catch((err) => {
+          console.error('Consultation Error:', err);
+          showStatus('consFormStatus', '❌ Error: ' + err.message, false);
+        })
+        .finally(() => {
+          setLoading('consSubmitBtn', false);
+        });
     });
   }
-})();
+});
