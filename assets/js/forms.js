@@ -1,27 +1,41 @@
 /**
- * FORMS HANDLING WITH SUPABASE - BULLETPROOF VERSION
+ * FORMS HANDLING WITH SUPABASE - BULLETPROOF VERSION WITH DEBUG
  */
+
+console.log('🔥 FORMS.JS FILE LOADED! 🔥');
 
 // Wait for the entire page (including Supabase script) to fully load
 window.addEventListener('load', function() {
   'use strict';
 
+  console.log('🔥 WINDOW LOAD EVENT FIRED - Initializing forms...');
+
   // ⚠️ YOUR SUPABASE CREDENTIALS
   const SUPABASE_URL = 'https://urmwdijpgarcxnzjcbmi.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVybXdkaWpwZ2FyY3huempjYm1pIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MDU4NjYwNywiZXhwIjoyMDk2MTYyNjA3fQ.t1cLr0Aak3YaubgZJ5H5SgEEV0i9YzcI3wKwXBBE5u4'; // ⚠️ REMEMBER TO UPDATE THIS WITH THE LONG EYJ KEY!
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVybXdkaWpwZ2FyY3huempjYm1pIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MDU4NjYwNywiZXhwIjoyMDk2MTYyNjA3fQ.t1cLr0Aak3YaubgZJ5H5SgEEV0i9YzcI3wKwXBBE5u4';
+
+  console.log('Supabase URL:', SUPABASE_URL);
+  console.log('Supabase Key (first 50 chars):', SUPABASE_ANON_KEY.substring(0, 50) + '...');
 
   // Check if Supabase loaded correctly
   if (typeof window.supabase === 'undefined') {
-    console.error('Supabase JS failed to load!');
+    console.error('❌ Supabase JS failed to load!');
     return;
   }
 
+  console.log('✅ Supabase JS library detected');
+
   const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  console.log('✅ Supabase client created');
 
   // Helper: Show status message
   function showStatus(elementId, message, isSuccess) {
+    console.log(`📝 showStatus called for ${elementId}: ${message}`);
     const el = document.getElementById(elementId);
-    if (!el) return;
+    if (!el) {
+      console.error(`❌ Element ${elementId} not found!`);
+      return;
+    }
     el.textContent = message;
     el.className = `mt-3 text-center ${isSuccess ? 'text-success fw-bold' : 'text-danger fw-bold'}`;
     el.style.display = 'block';
@@ -34,8 +48,12 @@ window.addEventListener('load', function() {
 
   // Helper: Toggle loading state
   function setLoading(buttonId, isLoading) {
+    console.log(`🔄 setLoading called for ${buttonId}: ${isLoading}`);
     const btn = document.getElementById(buttonId);
-    if (!btn) return;
+    if (!btn) {
+      console.error(`❌ Button ${buttonId} not found!`);
+      return;
+    }
     const textSpan = btn.querySelector('.btn-text');
     const spinner = btn.querySelector('.spinner-border');
     
@@ -53,16 +71,24 @@ window.addEventListener('load', function() {
   // 1. CONTACT FORM
   // ==========================================
   const contactForm = document.getElementById('contactForm');
+  console.log('📋 Contact form element:', contactForm);
+  
   if (contactForm) {
+    console.log('✅ Contact form found! Attaching event listener...');
+    
     contactForm.addEventListener('submit', function(e) {
+      console.log('🚀 CONTACT FORM SUBMIT EVENT FIRED!');
       e.preventDefault(); // STOPS THE PAGE FROM REFRESHING
+      console.log('✅ e.preventDefault() called - page should not refresh');
       
       if (!contactForm.checkValidity()) {
+        console.log('⚠️ Form validation failed');
         e.stopPropagation();
         contactForm.classList.add('was-validated');
         return;
       }
 
+      console.log('✅ Form validation passed');
       setLoading('contactSubmitBtn', true);
       const statusEl = document.getElementById('contactFormStatus');
       if (statusEl) statusEl.style.display = 'none';
@@ -76,9 +102,16 @@ window.addEventListener('load', function() {
         message: formData.get('message')
       };
 
+      console.log('📤 Submitting data to Supabase:', submissionData);
+
       supabase.from('contact_submissions').insert([submissionData]).select()
         .then(({ data, error }) => {
-          if (error) throw error;
+          console.log('📥 Supabase response received');
+          if (error) {
+            console.error('❌ Supabase error:', error);
+            throw error;
+          }
+          console.log('✅ Supabase data:', data);
           if (data && data.length > 0) {
             showStatus('contactFormStatus', '✅ Success! Message sent.', true);
             contactForm.reset();
@@ -88,32 +121,45 @@ window.addEventListener('load', function() {
           }
         })
         .catch((err) => {
-          console.error('Contact Error:', err);
+          console.error('❌ Contact Error:', err);
           showStatus('contactFormStatus', '❌ Error: ' + err.message, false);
         })
         .finally(() => {
           setLoading('contactSubmitBtn', false);
         });
     });
+  } else {
+    console.error('❌ Contact form NOT found on this page!');
   }
 
   // ==========================================
   // 2. CONSULTATION FORM
   // ==========================================
   const consForm = document.getElementById('consultationForm');
+  console.log('📋 Consultation form element:', consForm);
+  
   if (consForm) {
+    console.log('✅ Consultation form found! Attaching event listener...');
+    
     const dateInput = document.getElementById('consDate');
-    if (dateInput) dateInput.min = new Date().toISOString().split('T')[0];
+    if (dateInput) {
+      dateInput.min = new Date().toISOString().split('T')[0];
+      console.log('✅ Date input min set to today');
+    }
 
     consForm.addEventListener('submit', function(e) {
+      console.log('🚀 CONSULTATION FORM SUBMIT EVENT FIRED!');
       e.preventDefault(); // STOPS THE PAGE FROM REFRESHING
+      console.log('✅ e.preventDefault() called - page should not refresh');
 
       if (!consForm.checkValidity()) {
+        console.log('⚠️ Form validation failed');
         e.stopPropagation();
         consForm.classList.add('was-validated');
         return;
       }
 
+      console.log('✅ Form validation passed');
       setLoading('consSubmitBtn', true);
       const statusEl = document.getElementById('consFormStatus');
       if (statusEl) statusEl.style.display = 'none';
@@ -130,9 +176,16 @@ window.addEventListener('load', function() {
         description: formData.get('description')
       };
 
+      console.log('📤 Submitting consultation data to Supabase:', submissionData);
+
       supabase.from('consultation_requests').insert([submissionData]).select()
         .then(({ data, error }) => {
-          if (error) throw error;
+          console.log('📥 Supabase response received');
+          if (error) {
+            console.error('❌ Supabase error:', error);
+            throw error;
+          }
+          console.log('✅ Supabase data:', data);
           if (data && data.length > 0) {
             showStatus('consFormStatus', '✅ Success! Consultation requested.', true);
             consForm.reset();
@@ -142,12 +195,16 @@ window.addEventListener('load', function() {
           }
         })
         .catch((err) => {
-          console.error('Consultation Error:', err);
+          console.error('❌ Consultation Error:', err);
           showStatus('consFormStatus', '❌ Error: ' + err.message, false);
         })
         .finally(() => {
           setLoading('consSubmitBtn', false);
         });
     });
+  } else {
+    console.error('❌ Consultation form NOT found on this page!');
   }
+
+  console.log('🔥 FORMS.JS INITIALIZATION COMPLETE! 🔥');
 });
