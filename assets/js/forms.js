@@ -8,7 +8,7 @@ window.addEventListener('load', function() {
 
   // ⚠️ YOUR SUPABASE CREDENTIALS
   const SUPABASE_URL = 'https://urmwdijpgarcxnzjcbmi.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVybXdkaWpwZ2FyY3huempjYm1pIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1ODY2MDcsImV4cCI6MjA5NjE2MjYwN30.pmva1SNmOl4Z7JPNRzRXXrDIdxHJD7Ag6XnrfNM8H0k'; // ⚠️ REMEMBER TO UPDATE THIS WITH THE LONG EYJ KEY!
+  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVybXdkaWpwZ2FyY3huempjYm1pIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4MDU4NjYwNywiZXhwIjoyMDk2MTYyNjA3fQ.t1cLr0Aak3YaubgZJ5H5SgEEV0i9YzcI3wKwXBBE5u4'; // ⚠️ REMEMBER TO UPDATE THIS WITH THE LONG EYJ KEY!
 
   // Check if Supabase loaded correctly
   if (typeof window.supabase === 'undefined') {
