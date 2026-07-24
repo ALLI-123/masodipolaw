@@ -905,3 +905,70 @@
   }
   */
 }
+
+
+/* =========================================
+   MOBILE NAVIGATION & PAGE HEADER FIXES
+   ========================================= */
+
+@media (max-width: 991.98px) {
+  /* 1. Force the mobile drop-down to be solid and sit ON TOP */
+  .navbar-collapse {
+    background-color: #0A2540 !important; /* Solid brand dark blue */
+    position: absolute;
+    top: 100%; /* Drops directly below the navbar */
+    left: 0;
+    width: 100%;
+    z-index: 9999 !important; /* Forces it above ALL page headers */
+    padding: 20px 15px;
+    border-top: 3px solid #C9A961; /* Elegant gold accent line */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4); /* Deep shadow for separation */
+  }
+
+  /* 2. Make sure the nav links are clearly visible */
+  .navbar-collapse .nav-link {
+    color: #ffffff !important;
+    padding: 12px 0;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+  }
+
+  .navbar-collapse .nav-link:hover,
+  .navbar-collapse .nav-link.active {
+    color: #C9A961 !important; /* Gold color on hover/active */
+    padding-left: 10px; /* Slight slide effect */
+    transition: all 0.3s ease;
+  }
+
+  /* 3. Fix the "Book Consultation" button in mobile menu */
+  .navbar-collapse .btn-gold {
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* 4. Ensure Page Headers have a strong, readable overlay */
+.page-header {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  padding: 140px 0 80px; /* Extra top padding to clear the fixed navbar */
+}
+
+.page-header .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Strong dark blue overlay so white text pops perfectly */
+  background: linear-gradient(135deg, rgba(10, 37, 64, 0.9) 0%, rgba(19, 49, 92, 0.85) 100%);
+  z-index: 1;
+}
+
+/* 5. Ensure the text inside the page header sits ABOVE the overlay */
+.page-header .container {
+  position: relative;
+  z-index: 2;
+}
